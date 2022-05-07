@@ -25,12 +25,19 @@ print()
 user_points = 300
 card = [1,2,3,4,5,6,7,8,9,10,11,12,13]
 
-
 def main():
-    card_number = int(f"The card is {random.choice(card)}")
-    print(card_number)
+    while user_points != 0:
+        guess()
+    print("Game over")
+    
+
+def guess():
+    card_number = random.choice(card)
+    print(f"The card is {card_number}")
     user_choise = input("Higher or lower (h/l)  ")
-    next_number = int(print(f"Next card was: {random.choice(card)}"))
+    next_number = random.choice(card)
+    print(f"Next card was: {next_number}")
+
     if next_number > card_number and user_choise == "h":
         correct_asnwer()
     elif next_number < card_number and user_choise == "h":
@@ -45,14 +52,15 @@ def main():
 
 def correct_asnwer():
     correct = user_points + 100
-    print(f"your score is {correct}")
+    new_points = correct
+    print(f"your score is {new_points}")
     print()
 
 
 
 def incorrect_answer():
     incorrect = user_points - 75
-    print(f"your score is {incorrect}")
-
+    new_points = incorrect
+    print(f"your score is {new_points}")
     print()
 main()
