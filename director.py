@@ -25,12 +25,15 @@ print()
 user_points = 300
 card = [1,2,3,4,5,6,7,8,9,10,11,12,13]
 
+
+ # Loop tha game until user get 0 points
 def main():
     while user_points != 0:
         guess()
     print("Game over")
-    
 
+
+# Prompts the player to guess whether the next number will be Higher (H), or Lower (L)
 def guess():
     card_number = random.choice(card)
     print(f"The card is {card_number}")
@@ -50,12 +53,12 @@ def guess():
         print("Try again")
 
 
+# Calculates the current points the player has
 def correct_asnwer():
     correct = user_points + 100
     new_points = correct
     print(f"your score is {new_points}")
     print()
-
 
 
 def incorrect_answer():
