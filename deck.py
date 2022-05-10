@@ -2,7 +2,7 @@ import random
 from card import Card
 
 # cse210
-# Team 4 - Spring2020
+# Team 4 - Spring2022
 # 
 # Pierce Cirks
 # Matthew Scoville
