@@ -1,8 +1,4 @@
-from deck import Deck
+from director import Director
 
-# Test the deck
-mydeck = Deck()
-
-for i in range(len(mydeck.Cards)):
-    card = mydeck.drawCard()
-    print(f"Card: {card.getCardName()} Value: {card.getValue()}")
+director = Director()
+director.start_game()
