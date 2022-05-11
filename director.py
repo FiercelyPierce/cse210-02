@@ -1,6 +1,3 @@
-'''
-
-'''
 import random
 from deck import Deck
 
@@ -12,14 +9,21 @@ from deck import Deck
 # Anita Taylor
 # Andrew Vargas
 
-print()
-user_points = 300
 
-class Director:
+class Director():
+
+    def __init__(self):
+        
+        self.score = 300
+        self.is_playing = True
+        self.card_deck = Deck()
+        self.next_card = None
+        self.this_card = None
+        self.hilo = ""
 
     # Loop the game until user get 0 points
-    def main(self):
-        while user_points > 0:
+    def start_game(self):
+        while self.score > 0:
             self.guess()
             
         print("Game over")
@@ -27,10 +31,10 @@ class Director:
 
     # Prompts the player to guess whether the next number will be Higher (H), or Lower (L)    
     def guess(self):
-        card_number = Deck.drawCard()
+        card_number = Deck.drawCard(self)
         print(f"The card is {card_number}")
         user_choice = input("Higher or lower (H/L)  ")
-        next_number = Deck.drawCard()
+        next_number = Deck.drawCard(self)
         print(f"Next card was: {next_number}")
 
         if next_number > card_number and user_choice.lower() == "h":
@@ -47,15 +51,12 @@ class Director:
 
     # Calculates the current points the player has
     def correct_asnwer(self):
-        new_points = user_points + 100
+        new_points = self.score + 100
         print(f"your score is {new_points}")
         print()
 
 
     def incorrect_answer(self):
-        new_points = user_points - 75
+        new_points = self.score - 75
         print(f"your score is {new_points}")
         print()
-
-
-    main()
