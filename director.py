@@ -1,5 +1,6 @@
 import random
 from deck import Deck
+from card import Card
 
 # cse210
 # Team 4 - Spring2022
@@ -13,6 +14,11 @@ from deck import Deck
 class Director():
 
     def __init__(self):
+        """
+        Constructor - initialize the deck
+        
+        Args: self - an instance of Deck
+        """
         
         self.score = 300
         self.is_playing = True
@@ -21,17 +27,20 @@ class Director():
         self.this_card = None
         self.hilo = ""
 
-    # Loop the game until user get 0 points
+
     def start_game(self):
+        '''Loop the game until user get 0 points
+        '''
         while self.score > 0:
             self.guess()
             
         print("Game over")
         
 
-    # Prompts the player to guess whether the next number will be Higher (H), or Lower (L)    
     def guess(self):
-        card_number = Deck.drawCard(self)
+        '''Prompts the player to guess whether the next number will be Higher (H), or Lower (L) 
+        '''
+        card_number = Deck.drawCard()
         print(f"The card is {card_number}")
         user_choice = input("Higher or lower (H/L)  ")
         next_number = Deck.drawCard(self)
@@ -49,8 +58,9 @@ class Director():
             print("There seems to be a typo. Please try again")
 
 
-    # Calculates the current points the player has
     def correct_asnwer(self):
+        '''Calculates the current points the player has
+        '''
         new_points = self.score + 100
         print(f"your score is {new_points}")
         print()
