@@ -11,13 +11,13 @@ from card import Card
 # Andrew Vargas
 
 
-class Director():
+class Director:
 
     def __init__(self):
         """
-        Constructor - initialize the deck
+            Constructor - initialize the deck
         
-        Args: self - an instance of Deck
+            Args: self - an instance of Deck
         """
         
         self.score = 300
@@ -40,10 +40,10 @@ class Director():
     def guess(self):
         '''Prompts the player to guess whether the next number will be Higher (H), or Lower (L) 
         '''
-        card_number = Deck.drawCard()
+        card_number = self.card_deck.drawCard()
         print(f"The card is {card_number}")
         user_choice = input("Higher or lower (H/L)  ")
-        next_number = Deck.drawCard(self)
+        next_number = self.card_deck.drawCard()
         print(f"Next card was: {next_number}")
 
         if next_number > card_number and user_choice.lower() == "h":
